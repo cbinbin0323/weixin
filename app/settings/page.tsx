@@ -15,19 +15,19 @@ export default function SettingsPage() {
 
   return (
     <div className="container mx-auto px-4 py-8 pb-20">
-      <h1 className="text-2xl font-bold mb-6">Settings</h1>
+      <h1 className="text-2xl font-bold mb-6">设置</h1>
 
       <div className="space-y-6">
         {/* Appearance */}
         <Card>
           <CardContent className="p-6">
-            <h2 className="text-lg font-medium mb-4">Appearance</h2>
+            <h2 className="text-lg font-medium mb-4">外观</h2>
 
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <Moon className="h-5 w-5 mr-3 text-gray-500" />
-                  <Label htmlFor="dark-mode">Dark Mode</Label>
+                  <Label htmlFor="dark-mode">深色模式</Label>
                 </div>
                 <Switch id="dark-mode" checked={darkMode} onCheckedChange={setDarkMode} />
               </div>
@@ -35,7 +35,7 @@ export default function SettingsPage() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <Languages className="h-5 w-5 mr-3 text-gray-500" />
-                  <Label htmlFor="language">Language</Label>
+                  <Label htmlFor="language">语言</Label>
                 </div>
                 <select
                   id="language"
@@ -43,9 +43,9 @@ export default function SettingsPage() {
                   onChange={(e) => setLanguage(e.target.value)}
                   className="border rounded-md px-3 py-1 text-sm"
                 >
-                  <option value="english">English</option>
-                  <option value="chinese">Chinese</option>
-                  <option value="spanish">Spanish</option>
+                  <option value="english">中文</option>
+                  <option value="chinese">中文</option>
+                  <option value="spanish">西班牙语</option>
                 </select>
               </div>
             </div>
@@ -55,13 +55,13 @@ export default function SettingsPage() {
         {/* Notifications */}
         <Card>
           <CardContent className="p-6">
-            <h2 className="text-lg font-medium mb-4">Notifications</h2>
+            <h2 className="text-lg font-medium mb-4">通知</h2>
 
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <Bell className="h-5 w-5 mr-3 text-gray-500" />
-                  <Label htmlFor="notifications">Enable Notifications</Label>
+                  <Label htmlFor="notifications">启用通知</Label>
                 </div>
                 <Switch id="notifications" checked={notifications} onCheckedChange={setNotifications} />
               </div>
@@ -72,15 +72,15 @@ export default function SettingsPage() {
         {/* Data & Privacy */}
         <Card>
           <CardContent className="p-6">
-            <h2 className="text-lg font-medium mb-4">Data & Privacy</h2>
+            <h2 className="text-lg font-medium mb-4">数据与隐私</h2>
 
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <Shield className="h-5 w-5 mr-3 text-gray-500" />
                   <div>
-                    <Label htmlFor="auto-save">Auto-save Analysis</Label>
-                    <p className="text-xs text-gray-500 mt-1">Automatically save analysis results to your device</p>
+                    <Label htmlFor="auto-save">自动保存分析</Label>
+                    <p className="text-xs text-gray-500 mt-1">自动将分析结果保存到您的设备</p>
                   </div>
                 </div>
                 <Switch id="auto-save" checked={autoSave} onCheckedChange={setAutoSave} />
@@ -90,8 +90,8 @@ export default function SettingsPage() {
                 <div className="flex items-center">
                   <Download className="h-5 w-5 mr-3 text-gray-500" />
                   <div>
-                    <Label>Export All Data</Label>
-                    <p className="text-xs text-gray-500 mt-1">Download all your analysis data</p>
+                    <Label>导出所有数据</Label>
+                    <p className="text-xs text-gray-500 mt-1">下载您的所有分析数据</p>
                   </div>
                 </div>
                 <Button variant="outline" size="sm">
@@ -103,12 +103,12 @@ export default function SettingsPage() {
                 <div className="flex items-center">
                   <Trash2 className="h-5 w-5 mr-3 text-red-500" />
                   <div>
-                    <Label className="text-red-500">Clear All Data</Label>
-                    <p className="text-xs text-gray-500 mt-1">Delete all your analysis data and history</p>
+                    <Label className="text-red-500">清除所有数据</Label>
+                    <p className="text-xs text-gray-500 mt-1">删除您的所有分析数据和历史记录</p>
                   </div>
                 </div>
                 <Button variant="destructive" size="sm">
-                  Clear
+                  清除
                 </Button>
               </div>
             </div>
@@ -118,33 +118,33 @@ export default function SettingsPage() {
         {/* About & Help */}
         <Card>
           <CardContent className="p-6">
-            <h2 className="text-lg font-medium mb-4">About & Help</h2>
+            <h2 className="text-lg font-medium mb-4">关于与帮助</h2>
 
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <Info className="h-5 w-5 mr-3 text-gray-500" />
-                  <Label>About</Label>
+                  <Label>关于</Label>
                 </div>
                 <Button variant="ghost" size="sm">
-                  View
+                  查看
                 </Button>
               </div>
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <HelpCircle className="h-5 w-5 mr-3 text-gray-500" />
-                  <Label>Help & Support</Label>
+                  <Label>帮助与支持</Label>
                 </div>
                 <Button variant="ghost" size="sm">
-                  Contact
+                  联系
                 </Button>
               </div>
             </div>
 
             <div className="mt-6 text-center text-xs text-gray-500">
-              <p>Chat Record Summary Assistant</p>
-              <p>Version 1.0.0</p>
+              <p>聊天记录摘要助手</p>
+              <p>版本 1.0.0</p>
             </div>
           </CardContent>
         </Card>

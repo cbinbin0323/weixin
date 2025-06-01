@@ -16,14 +16,14 @@ export default function AnalysisDetailPage() {
   // Mock data - would be fetched from API in real app
   const chatData = {
     1: {
-      name: "Li Ming",
+      name: "李明",
       type: "friend",
       messageCount: 2853,
       dateRange: "2023/01/01-2023/05/28",
       avatar: "/placeholder.svg?height=64&width=64",
     },
     2: {
-      name: "Product Development Group",
+      name: "产品开发组",
       type: "group",
       messageCount: 5241,
       dateRange: "2023/01/01-2023/05/28",
@@ -37,15 +37,15 @@ export default function AnalysisDetailPage() {
   return (
     <div className="container mx-auto px-4 py-8 pb-20">
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold">Analysis Details</h1>
+        <h1 className="text-2xl font-bold">分析详情</h1>
         <div className="flex space-x-2">
           <Button variant="outline" size="sm" className="flex items-center">
             <Download className="h-4 w-4 mr-2" />
-            Export
+            导出
           </Button>
           <Button variant="outline" size="sm" className="flex items-center">
             <Share2 className="h-4 w-4 mr-2" />
-            Share
+            分享
           </Button>
         </div>
       </div>
@@ -59,7 +59,7 @@ export default function AnalysisDetailPage() {
             </div>
             <div>
               <h2 className="text-xl font-bold">{chat.name}</h2>
-              <p className="text-sm text-gray-500">{chat.type === "group" ? "Group Chat" : "Friend"}</p>
+              <p className="text-sm text-gray-500">{chat.type === "group" ? "群聊" : "好友"}</p>
               <p className="text-sm text-gray-500">{chat.dateRange}</p>
             </div>
           </div>
@@ -68,22 +68,22 @@ export default function AnalysisDetailPage() {
             <div className="bg-gray-50 p-4 rounded-lg flex items-center">
               <MessageSquare className="h-8 w-8 text-green-500 mr-3" />
               <div>
-                <div className="text-sm text-gray-500">Messages</div>
+                <div className="text-sm text-gray-500">消息</div>
                 <div className="text-xl font-bold">{chat.messageCount.toLocaleString()}</div>
               </div>
             </div>
             <div className="bg-gray-50 p-4 rounded-lg flex items-center">
               <User className="h-8 w-8 text-blue-500 mr-3" />
               <div>
-                <div className="text-sm text-gray-500">Participants</div>
+                <div className="text-sm text-gray-500">参与者</div>
                 <div className="text-xl font-bold">{chat.type === "group" ? "25" : "2"}</div>
               </div>
             </div>
             <div className="bg-gray-50 p-4 rounded-lg flex items-center">
               <Calendar className="h-8 w-8 text-purple-500 mr-3" />
               <div>
-                <div className="text-sm text-gray-500">Time Span</div>
-                <div className="text-xl font-bold">148 days</div>
+                <div className="text-sm text-gray-500">时间跨度</div>
+                <div className="text-xl font-bold">148 天</div>
               </div>
             </div>
           </div>
@@ -93,29 +93,29 @@ export default function AnalysisDetailPage() {
       {/* Analysis Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList className="grid grid-cols-4 mb-6">
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="activity">Activity</TabsTrigger>
-          <TabsTrigger value="topics">Topics</TabsTrigger>
-          <TabsTrigger value="summary">Summary</TabsTrigger>
+          <TabsTrigger value="overview">概览</TabsTrigger>
+          <TabsTrigger value="activity">活跃度</TabsTrigger>
+          <TabsTrigger value="topics">话题</TabsTrigger>
+          <TabsTrigger value="summary">摘要</TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview" className="space-y-6">
           <Card>
             <CardContent className="p-6">
-              <h3 className="text-lg font-medium mb-4">Key Insights</h3>
+              <h3 className="text-lg font-medium mb-4">关键洞察</h3>
               <div className="space-y-4">
                 <div className="p-4 bg-green-50 border border-green-100 rounded-lg">
-                  <h4 className="font-medium text-green-800 mb-1">Most Active Time</h4>
+                  <h4 className="font-medium text-green-800 mb-1">最活跃时间</h4>
                   <div className="flex items-center">
                     <Clock className="h-5 w-5 text-green-600 mr-2" />
-                    <p className="text-green-700">Weekdays between 10:00 AM - 12:00 PM</p>
+                    <p className="text-green-700">工作日上午 10:00 - 12:00</p>
                   </div>
                 </div>
 
                 <div className="p-4 bg-blue-50 border border-blue-100 rounded-lg">
-                  <h4 className="font-medium text-blue-800 mb-1">Top Keywords</h4>
+                  <h4 className="font-medium text-blue-800 mb-1">热门关键词</h4>
                   <div className="flex flex-wrap gap-2 mt-2">
-                    {["project", "meeting", "deadline", "design", "feature"].map((keyword) => (
+                    {["项目", "会议", "截止日期", "设计", "功能"].map((keyword) => (
                       <span key={keyword} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
                         {keyword}
                       </span>
@@ -124,10 +124,8 @@ export default function AnalysisDetailPage() {
                 </div>
 
                 <div className="p-4 bg-purple-50 border border-purple-100 rounded-lg">
-                  <h4 className="font-medium text-purple-800 mb-1">Sentiment Analysis</h4>
-                  <p className="text-purple-700">
-                    Overall positive sentiment (62% positive, 28% neutral, 10% negative)
-                  </p>
+                  <h4 className="font-medium text-purple-800 mb-1">情感分析</h4>
+                  <p className="text-purple-700">整体积极情感（62% 积极，28% 中性，10% 消极）</p>
                 </div>
               </div>
             </CardContent>
@@ -135,9 +133,9 @@ export default function AnalysisDetailPage() {
 
           <Card>
             <CardContent className="p-6">
-              <h3 className="text-lg font-medium mb-4">Activity Overview</h3>
+              <h3 className="text-lg font-medium mb-4">活跃度概览</h3>
               <div className="bg-gray-50 p-4 rounded-lg h-48 flex items-center justify-center">
-                <p className="text-gray-500">Activity chart will be displayed here</p>
+                <p className="text-gray-500">活跃度图表将在此显示</p>
               </div>
             </CardContent>
           </Card>
@@ -146,27 +144,27 @@ export default function AnalysisDetailPage() {
         <TabsContent value="activity" className="space-y-6">
           <Card>
             <CardContent className="p-6">
-              <h3 className="text-lg font-medium mb-4">Message Frequency</h3>
+              <h3 className="text-lg font-medium mb-4">消息频率</h3>
               <div className="bg-gray-50 p-4 rounded-lg h-64 flex items-center justify-center">
-                <p className="text-gray-500">Message frequency chart will be displayed here</p>
+                <p className="text-gray-500">消息频率图表将在此显示</p>
               </div>
             </CardContent>
           </Card>
 
           <Card>
             <CardContent className="p-6">
-              <h3 className="text-lg font-medium mb-4">Time Distribution</h3>
+              <h3 className="text-lg font-medium mb-4">时间分布</h3>
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <h4 className="text-sm font-medium mb-2">By Day of Week</h4>
+                  <h4 className="text-sm font-medium mb-2">按星期分布</h4>
                   <div className="bg-gray-50 p-4 rounded-lg h-40 flex items-center justify-center">
-                    <p className="text-gray-500">Day of week chart</p>
+                    <p className="text-gray-500">星期分布图</p>
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium mb-2">By Hour of Day</h4>
+                  <h4 className="text-sm font-medium mb-2">按小时分布</h4>
                   <div className="bg-gray-50 p-4 rounded-lg h-40 flex items-center justify-center">
-                    <p className="text-gray-500">Hour of day chart</p>
+                    <p className="text-gray-500">小时分布图</p>
                   </div>
                 </div>
               </div>
@@ -177,24 +175,24 @@ export default function AnalysisDetailPage() {
         <TabsContent value="topics" className="space-y-6">
           <Card>
             <CardContent className="p-6">
-              <h3 className="text-lg font-medium mb-4">Hot Topics</h3>
+              <h3 className="text-lg font-medium mb-4">热门话题</h3>
               <div className="bg-gray-50 p-4 rounded-lg h-64 flex items-center justify-center">
-                <p className="text-gray-500">Word cloud will be displayed here</p>
+                <p className="text-gray-500">词云将在此显示</p>
               </div>
             </CardContent>
           </Card>
 
           <Card>
             <CardContent className="p-6">
-              <h3 className="text-lg font-medium mb-4">Topic Trends</h3>
+              <h3 className="text-lg font-medium mb-4">话题趋势</h3>
               <div className="bg-gray-50 p-4 rounded-lg h-48 flex items-center justify-center">
-                <p className="text-gray-500">Topic trends chart will be displayed here</p>
+                <p className="text-gray-500">话题趋势图表将在此显示</p>
               </div>
 
               <div className="mt-4">
-                <h4 className="text-sm font-medium mb-2">Top Keywords</h4>
+                <h4 className="text-sm font-medium mb-2">热门关键词</h4>
                 <div className="space-y-2">
-                  {["project", "meeting", "deadline", "design", "feature"].map((keyword, index) => (
+                  {["项目", "会议", "截止日期", "设计", "功能"].map((keyword, index) => (
                     <div key={keyword} className="flex items-center">
                       <div className="w-24 text-sm">{keyword}</div>
                       <div className="flex-1 h-6 bg-gray-100 rounded-full overflow-hidden">
@@ -215,32 +213,27 @@ export default function AnalysisDetailPage() {
         <TabsContent value="summary" className="space-y-6">
           <Card>
             <CardContent className="p-6">
-              <h3 className="text-lg font-medium mb-4">Conversation Summary</h3>
+              <h3 className="text-lg font-medium mb-4">对话摘要</h3>
               <div className="prose max-w-none">
-                <p>
-                  This conversation primarily revolves around the development of a new product feature. The team
-                  discussed technical requirements, design considerations, and project timelines.
-                </p>
+                <p>本次对话主要围绕新产品功能的开发展开。团队讨论了技术要求、设计考虑和项目时间表。</p>
 
-                <h4>Key Points:</h4>
+                <h4>关键点：</h4>
                 <ul>
-                  <li>The team agreed on a two-week sprint to complete the initial prototype</li>
-                  <li>Design mockups need to be finalized by Friday</li>
-                  <li>Backend API development will start next Monday</li>
-                  <li>Client presentation is scheduled for the end of the month</li>
+                  <li>团队同意用两周的冲刺时间完成初始原型</li>
+                  <li>设计模型需要在周五前最终确定</li>
+                  <li>后端 API 开发将于下周一开始</li>
+                  <li>客户演示定于本月底</li>
                 </ul>
 
-                <h4>Action Items:</h4>
+                <h4>行动项目：</h4>
                 <ul>
-                  <li>John will prepare the technical documentation</li>
-                  <li>Sarah will finalize the UI designs</li>
-                  <li>Team meeting scheduled for Wednesday to review progress</li>
+                  <li>John 将准备技术文档</li>
+                  <li>Sarah 将最终确定 UI 设计</li>
+                  <li>团队会议安排在周三，以审查进度</li>
                 </ul>
 
                 <p>
-                  The overall sentiment of the conversation was positive, with team members showing enthusiasm about the
-                  project. There were some concerns raised about the tight deadline, but the team agreed to prioritize
-                  features to ensure timely delivery.
+                  对话的整体情绪是积极的，团队成员对该项目表现出热情。有人对紧张的截止日期提出了一些担忧，但团队同意优先考虑各项功能，以确保及时交付。
                 </p>
               </div>
             </CardContent>
@@ -248,17 +241,14 @@ export default function AnalysisDetailPage() {
 
           <Card>
             <CardContent className="p-6">
-              <h3 className="text-lg font-medium mb-4">Important Messages</h3>
+              <h3 className="text-lg font-medium mb-4">重要消息</h3>
               <div className="space-y-4">
                 <div className="p-4 bg-gray-50 rounded-lg">
                   <div className="flex justify-between mb-2">
-                    <span className="font-medium">Li Ming</span>
+                    <span className="font-medium">李明</span>
                     <span className="text-sm text-gray-500">Jan 15, 10:23 AM</span>
                   </div>
-                  <p className="text-sm">
-                    I've just finished the initial requirements document. Please review it by tomorrow so we can
-                    finalize it.
-                  </p>
+                  <p className="text-sm">我已经完成了初始需求文档。请在明天之前查看，以便我们最终确定它。</p>
                 </div>
 
                 <div className="p-4 bg-gray-50 rounded-lg">
@@ -266,10 +256,7 @@ export default function AnalysisDetailPage() {
                     <span className="font-medium">Wang Xiaohong</span>
                     <span className="text-sm text-gray-500">Jan 16, 2:45 PM</span>
                   </div>
-                  <p className="text-sm">
-                    The client has requested some changes to the original scope. I'll send the updated requirements
-                    later today.
-                  </p>
+                  <p className="text-sm">客户已要求对原始范围进行一些更改。我稍后会发送更新后的要求。</p>
                 </div>
 
                 <div className="p-4 bg-gray-50 rounded-lg">
@@ -277,9 +264,7 @@ export default function AnalysisDetailPage() {
                     <span className="font-medium">Zhang Wei</span>
                     <span className="text-sm text-gray-500">Jan 20, 9:15 AM</span>
                   </div>
-                  <p className="text-sm">
-                    Team meeting confirmed for Wednesday at 2 PM. Please prepare your progress updates.
-                  </p>
+                  <p className="text-sm">团队会议已确认在周三下午 2 点举行。请准备好您的进度更新。</p>
                 </div>
               </div>
             </CardContent>

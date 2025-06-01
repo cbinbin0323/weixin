@@ -7,9 +7,9 @@ import Navbar from "@/components/navbar"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "Chat Record Summary Assistant",
-  description: "Analyze your chat records and extract important information",
-    generator: 'v0.dev'
+  title: "聊天记录摘要助手",
+  description: "分析您的聊天记录并提取重要信息",
+  generator: "v0.dev",
 }
 
 export default function RootLayout({

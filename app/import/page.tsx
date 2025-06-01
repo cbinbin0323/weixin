@@ -20,10 +20,10 @@ export default function ImportPage() {
   const [isImporting, setIsImporting] = useState(false)
 
   const friends = [
-    { value: "friend1", label: "Li Ming (Friend)" },
-    { value: "friend2", label: "Wang Xiaohong (Friend)" },
-    { value: "group1", label: "Product Development Group (Group Chat 25 people)" },
-    { value: "group2", label: "Family Group (Group Chat 5 people)" },
+    { value: "friend1", label: "李明（好友）" },
+    { value: "friend2", label: "王小红（好友）" },
+    { value: "group1", label: "产品开发组（群聊 25人）" },
+    { value: "group2", label: "家庭群（群聊 5人）" },
   ]
 
   const nextStep = () => {
@@ -64,14 +64,14 @@ export default function ImportPage() {
 
   return (
     <div className="container mx-auto px-4 py-8 pb-20">
-      <h1 className="text-2xl font-bold mb-6">Import Chat Records</h1>
+      <h1 className="text-2xl font-bold mb-6">导入聊天记录</h1>
 
       <Card>
         <CardContent className="p-6">
           {/* Step 1: Select Chat */}
           {currentStep === 1 && (
             <div>
-              <h2 className="text-lg font-medium mb-4">Step 1: Select Chat</h2>
+              <h2 className="text-lg font-medium mb-4">步骤 1：选择聊天</h2>
               <div className="space-y-3">
                 {friends.map((friend) => (
                   <div
@@ -91,22 +91,22 @@ export default function ImportPage() {
           {/* Step 2: Import Method */}
           {currentStep === 2 && (
             <div>
-              <h2 className="text-lg font-medium mb-4">Step 2: Import Method</h2>
+              <h2 className="text-lg font-medium mb-4">步骤 2：导入方式</h2>
 
               <RadioGroup value={importMethod} onValueChange={setImportMethod} className="space-y-3">
                 <div className="flex items-center space-x-2 border p-4 rounded-lg">
                   <RadioGroupItem value="local" id="local" />
                   <Label htmlFor="local" className="cursor-pointer flex-1">
-                    <div className="font-medium">Local File</div>
-                    <div className="text-sm text-gray-500">Import from a local chat export file</div>
+                    <div className="font-medium">本地文件</div>
+                    <div className="text-sm text-gray-500">从本地聊天导出文件导入</div>
                   </Label>
                 </div>
 
                 <div className="flex items-center space-x-2 border p-4 rounded-lg">
                   <RadioGroupItem value="cloud" id="cloud" />
                   <Label htmlFor="cloud" className="cursor-pointer flex-1">
-                    <div className="font-medium">Cloud Backup</div>
-                    <div className="text-sm text-gray-500">Import from your cloud backup</div>
+                    <div className="font-medium">云端备份</div>
+                    <div className="text-sm text-gray-500">从您的云端备份导入</div>
                   </Label>
                 </div>
               </RadioGroup>
@@ -115,12 +115,12 @@ export default function ImportPage() {
                 <div className="flex justify-between mb-2">
                   <div className="flex items-center">
                     <Calendar className="h-4 w-4 mr-2" />
-                    <span className="text-sm">Date Range</span>
+                    <span className="text-sm">日期范围</span>
                   </div>
                 </div>
                 <div className="flex space-x-4">
                   <div className="flex-1">
-                    <Label htmlFor="startDate">Start Date</Label>
+                    <Label htmlFor="startDate">开始日期</Label>
                     <input
                       id="startDate"
                       type="date"
@@ -130,7 +130,7 @@ export default function ImportPage() {
                     />
                   </div>
                   <div className="flex-1">
-                    <Label htmlFor="endDate">End Date</Label>
+                    <Label htmlFor="endDate">结束日期</Label>
                     <input
                       id="endDate"
                       type="date"
@@ -149,7 +149,7 @@ export default function ImportPage() {
                   className="w-full flex items-center justify-center"
                 >
                   <Upload className="h-4 w-4 mr-2" />
-                  Choose File
+                  选择文件
                 </Button>
                 <input id="fileInput" type="file" className="hidden" accept=".txt,.csv,.json" />
               </div>
@@ -159,13 +159,13 @@ export default function ImportPage() {
           {/* Step 3: Import Progress */}
           {currentStep === 3 && (
             <div>
-              <h2 className="text-lg font-medium mb-4">Step 3: Importing</h2>
+              <h2 className="text-lg font-medium mb-4">步骤 3：导入中</h2>
 
               <div className="text-center mb-6">
                 {isImporting ? (
-                  <p>Importing and analyzing chat records...</p>
+                  <p>正在导入和分析聊天记录...</p>
                 ) : (
-                  <p className="text-green-500 font-medium">Import completed!</p>
+                  <p className="text-green-500 font-medium">导入完成！</p>
                 )}
               </div>
 
@@ -174,12 +174,12 @@ export default function ImportPage() {
 
               <div className="mt-6 space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span>Messages processed</span>
+                  <span>已处理消息</span>
                   <span>{Math.floor(progress * 52.41)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span>Time remaining</span>
-                  <span>{isImporting ? `${Math.ceil((100 - progress) / 10)} seconds` : "Completed"}</span>
+                  <span>剩余时间</span>
+                  <span>{isImporting ? `${Math.ceil((100 - progress) / 10)} 秒` : "已完成"}</span>
                 </div>
               </div>
             </div>
@@ -190,16 +190,16 @@ export default function ImportPage() {
             <div className="flex justify-between mt-8">
               <Button variant="outline" onClick={prevStep} disabled={currentStep === 1} className="flex items-center">
                 <ChevronLeft className="h-4 w-4 mr-1" />
-                Back
+                返回
               </Button>
 
               {currentStep === 2 ? (
                 <Button onClick={startImport} disabled={!selectedFriend} className="bg-green-500 hover:bg-green-600">
-                  Start Import
+                  开始导入
                 </Button>
               ) : (
                 <Button onClick={nextStep} disabled={!selectedFriend} className="flex items-center">
-                  Next
+                  下一步
                   <ChevronRight className="h-4 w-4 ml-1" />
                 </Button>
               )}
